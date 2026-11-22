@@ -1,0 +1,107 @@
+---
+layout: default
+title: Folsom & El Dorado Hills real estate news
+---
+{% assign latest = site.posts.first %}
+<section class="hero" id="subscribe">
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <div class="hero__eyebrow">Folsom &amp; El Dorado Hills real estate</div>
+      <h1>What's being built. What's selling. What's next.</h1>
+      <p class="hero__sub">One email every Thursday with the development news, sales and market numbers that move home values around Folsom Lake.</p>
+    </div>
+    {% include subscribe-form.html id="email" %}
+  </div>
+</section>
+
+<main class="wrap home" id="main">
+  {% if latest %}
+  <section class="week" aria-labelledby="week-h">
+    <div class="week__lead">
+      <div class="eyebrow">This week · {{ latest.date | date: "%b. %-d, %Y" }}</div>
+      <h2 id="week-h"><a href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h2>
+      {% if latest.dek %}<p class="week__dek">{{ latest.dek }}</p>{% endif %}
+      <a class="btn btn--big" href="{{ latest.url | relative_url }}">Read this week's issue
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+    {% if latest.top_stories %}
+    <ol class="top3">
+      {% for s in latest.top_stories %}
+      <li>
+        <span class="top3__num">{{ forloop.index }}</span>
+        <a href="{{ latest.url | relative_url }}#story-{{ forloop.index }}"><span class="top3__title">{{ s.title }}</span><span class="top3__sum">{{ s.summary }}</span></a>
+      </li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% assign m = site.data.market %}
+  <section id="market" aria-labelledby="market-h">
+    <div class="section-head">
+      <h2 id="market-h">The market · {{ m.area }}, {{ m.month }}</h2>
+      <span class="section-head__src">Sources: {{ m.sources | join: ", " }}</span>
+    </div>
+    <div class="stats">
+      {% for item in m.items %}
+      <div class="stat">
+        <div class="stat__label">{{ item.label }}</div>
+        <div class="stat__value">{{ item.value }}</div>
+        {% if item.change %}<div class="stat__change">{{ item.change_label | default: "vs. last year" }}: <span class="change change--{{ item.direction }}">{{ item.change }}</span></div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% if m.takeaway %}<p class="takeaway"><strong>What it means:</strong> {{ m.takeaway }}</p>{% endif %}
+  </section>
+
+  <section id="pipeline" aria-labelledby="pipe-h">
+    <div class="section-head">
+      <div>
+        <h2 id="pipe-h">Pipeline tracker</h2>
+        <p>The big projects reshaping Folsom &amp; El Dorado Hills</p>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table class="pipeline">
+        <thead><tr><th scope="col">Project</th><th scope="col">Size</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          {% for p in site.data.pipeline %}
+          <tr>
+            <td><div class="pipeline__name">{% if p.link %}<a href="{{ p.link }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</div><div class="pipeline__desc">{{ p.desc }}</div></td>
+            <td class="pipeline__size">{{ p.size }}</td>
+            <td><span class="pill pill--{{ p.status_class }}">{{ p.status }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="two-col">
+    <div class="wide">
+      <div class="section-head"><h2>Meetings ahead</h2></div>
+      {% for mtg in site.data.meetings %}
+      <div class="meeting">
+        <div class="meeting__date"><div class="meeting__mon">{{ mtg.mon }}</div><div class="meeting__day">{{ mtg.day }}</div></div>
+        <div>
+          <div class="meeting__title">{{ mtg.title }}</div>
+          <div class="meeting__when">{{ mtg.when }}</div>
+          <div class="meeting__what">{{ mtg.what }}</div>
+        </div>
+      </div>
+      {% endfor %}
+      <p class="note">Agendas usually post a few days before each meeting. We read them so you don't have to.</p>
+    </div>
+    <div class="narrow" id="archive">
+      <div class="section-head"><h2>Past issues</h2></div>
+      <ul class="archive-list">
+        {% for post in site.posts limit: 6 %}
+        <li><a href="{{ post.url | relative_url }}">Issue #{{ post.issue }} · {{ post.title }}<span>{{ post.date | date: "%b. %-d" }}</span></a></li>
+        {% endfor %}
+      </ul>
+      {% if site.posts.size > 6 %}<p class="note"><a href="{{ '/archive/' | relative_url }}">All issues →</a></p>{% endif %}
+    </div>
+  </section>
+</main>

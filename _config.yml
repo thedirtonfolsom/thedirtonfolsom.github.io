@@ -1,0 +1,31 @@
+title: The Dirt on Folsom
+tagline: What's being built. What's selling. What's next.
+description: Weekly real estate and development news for Folsom and El Dorado Hills.
+url: "https://thedirtonfolsom.github.io"
+baseurl: ""
+contact_email: thedirtonfolsom@gmail.com
+
+# Kit signup form. Paste the form's action URL here once Kit is set up.
+# Example: https://app.kit.com/forms/1234567/subscriptions
+kit_form_action: ""
+
+# Until launch, ask search engines not to index the site.
+noindex: true
+
+permalink: /issues/:year/:month/:day/:title/
+timezone: America/Los_Angeles
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+exclude:
+  - CLAUDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

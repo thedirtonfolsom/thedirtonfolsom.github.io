@@ -1,0 +1,18 @@
+# Updated each week by the issue writer. Only real, sourced numbers.
+area: Folsom
+month: October 2026
+month_short: Oct.
+sources: [Redfin, Movoto]
+takeaway: Prices are slightly below last year and homes are taking longer to sell, so buyers have more room to negotiate than they did a year ago.
+items:
+  - label: Median sale price
+    value: "$741,984"
+    change: "▼ 3.0%"
+    change_label: vs. last year
+    direction: down
+  - label: Median list price
+    value: "$785,000"
+  - label: Homes for sale
+    value: "382"
+  - label: Median days on market
+    value: "70"

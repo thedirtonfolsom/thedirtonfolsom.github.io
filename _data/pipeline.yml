@@ -1,0 +1,31 @@
+# Big projects. status_class: proposed | review | approved | building | land
+- name: Village of Marble Valley
+  desc: El Dorado Hills, south of Highway 50. Homes plus 475,000 sq. ft. of commercial.
+  size: ~3,236 homes
+  status: Proposed
+  status_class: proposed
+  link: https://www.eldoradocounty.ca.gov/Land-Use/Planning-and-Building/Planning-Division/Plans-Documents/Proposed-Specific-Plans
+- name: Toll Brothers at Alder Creek
+  desc: Folsom Ranch. Includes a future school, fire station and parks. Approved by City Council June 23, 2026.
+  size: 1,424 homes
+  status: Approved
+  status_class: approved
+  link: https://folsomtimes.com/folsom-council-approves-plans-for-1424-home-alder-creek-community-in-4-1-vote/
+- name: Sierra Oaks
+  desc: Folsom Ranch, by Taylor Morrison. Application filed March 2026; hearing not yet scheduled.
+  size: 804 lots
+  status: Under review
+  status_class: review
+  link: https://www.folsom.ca.us/government/community-development/planning-services/development-projects
+- name: Creekside Village
+  desc: El Dorado Hills, Latrobe Road. Replaces land once zoned for business park use. Approved Jan. 27, 2026.
+  size: 763 homes
+  status: Approved
+  status_class: approved
+  link: https://folsomtimes.com/200-acre-763-home-development-approved-for-el-dorado-hills/
+- name: East Bidwell affordable housing site
+  desc: Folsom, East Bidwell St. and Oak Avenue Pkwy. City bought 6.7 acres for $7.1M in August 2026.
+  size: ~200 apartments
+  status: Land purchased
+  status_class: land
+  link: https://folsomtimes.com/city-of-folsom-to-buy-7-1m-property-near-lakeside-church-eyed-for-future-affordable-housing/

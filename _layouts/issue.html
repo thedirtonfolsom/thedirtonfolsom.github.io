@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="wrap issue-wrap" id="main">
+  <article class="issue">
+    <div class="eyebrow">Issue #{{ page.issue }} · Week of {{ page.date | date: "%b. %-d, %Y" }}</div>
+    <h1 class="issue__title">{{ page.title }}</h1>
+    {% if page.dek %}<p class="issue__dek">{{ page.dek }}</p>{% endif %}
+    {% if page.sponsor %}<div class="sponsor-note">Presented by <strong>{{ page.sponsor }}</strong></div>{% endif %}
+    <div class="issue__body">
+      {{ content }}
+    </div>
+    <div class="issue__tip">Got a tip or a correction? Reply to this email or write to <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>.</div>
+    <nav class="issue__pager" aria-label="More issues">
+      {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← Issue #{{ page.previous.issue }}</a>{% else %}<span></span>{% endif %}
+      {% if page.next %}<a href="{{ page.next.url | relative_url }}">Issue #{{ page.next.issue }} →</a>{% endif %}
+    </nav>
+  </article>
+  <aside class="issue-side" aria-label="Sidebar">
+    <div class="side-subscribe">
+      <div class="side-subscribe__title">Get The Dirt every Thursday</div>
+      {% include subscribe-form.html id="side-email" label="Email address" %}
+    </div>
+    {% include market-sidebar.html %}
+    {% include meetings-sidebar.html %}
+  </aside>
+</div>

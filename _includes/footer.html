@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__brand">
+      {% include logo.html dark=true %}
+      <p>{{ site.description }}</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/about/#advertise' | relative_url }}">Advertise</a>
+      <a href="{{ '/about/#corrections' | relative_url }}">Corrections</a>
+      <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      <a href="{{ '/#subscribe' | relative_url }}">Subscribe</a>
+    </nav>
+  </div>
+</footer>

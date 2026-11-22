@@ -1,0 +1,11 @@
+{% assign m = site.data.market %}
+<div class="side-block">
+  <div class="side-block__title">{{ m.area }} market · {{ m.month_short }}</div>
+  {% for item in m.items %}
+  <div class="side-row">
+    <span class="side-row__label">{{ item.label }}</span>
+    <span class="side-row__value">{{ item.value }}{% if item.change %} <span class="change change--{{ item.direction }}">{{ item.change }}</span>{% endif %}</span>
+  </div>
+  {% endfor %}
+  <div class="side-block__note">Sources: {{ m.sources | join: ", " }}</div>
+</div>

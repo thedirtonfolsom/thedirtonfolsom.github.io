@@ -1,0 +1,16 @@
+{% assign fid = include.id | default: 'email' %}
+{% if site.kit_form_action != "" %}
+<form class="subscribe-form" action="{{ site.kit_form_action }}" method="post">
+  <label for="{{ fid }}">{{ include.label | default: 'Get The Dirt in your inbox' }}</label>
+  <div class="subscribe-form__row">
+    <input id="{{ fid }}" name="email_address" type="email" placeholder="you@email.com" required>
+    <button type="submit">Subscribe</button>
+  </div>
+  <span class="subscribe-form__note">Free. Weekly. Unsubscribe anytime.</span>
+</form>
+{% else %}
+<div class="subscribe-form">
+  <span class="subscribe-form__label">{{ include.label | default: 'Get The Dirt in your inbox' }}</span>
+  <p class="subscribe-form__soon">Email signup opens soon. Check back, or write to <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a> to get on the list.</p>
+</div>
+{% endif %}

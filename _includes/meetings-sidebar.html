@@ -1,0 +1,10 @@
+<div class="side-block">
+  <div class="side-block__title">Meetings ahead</div>
+  {% for mtg in site.data.meetings %}
+  <div class="side-meeting">
+    <div class="side-meeting__title">{{ mtg.title }}</div>
+    <div class="side-meeting__when">{{ mtg.short_when }}</div>
+    <div class="side-meeting__what">{{ mtg.short_what }}</div>
+  </div>
+  {% endfor %}
+</div>
