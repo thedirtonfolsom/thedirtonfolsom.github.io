@@ -1,0 +1,21 @@
+---
+layout: page
+title: You're in.
+permalink: /thanks/
+sitemap: false
+---
+{% assign latest = site.posts.first %}
+<p style="font-size: 21px; color: #44403C;">Thanks for subscribing to The Dirt on Folsom. Your first issue arrives Thursday.</p>
+
+<h2>What you'll get</h2>
+<p>One email every Thursday covering Folsom and El Dorado Hills real estate: what's being built, notable sales and listings, market numbers, and the meetings where big decisions get made. Every item explains where it is, how it got here and why it matters, with links to the public sources.</p>
+
+<h2>One quick favor</h2>
+<p>Add <strong>{{ site.contact_email }}</strong> to your contacts so The Dirt lands in your inbox, not your spam folder.</p>
+
+<h2>Start reading now</h2>
+{% if latest %}<p><a class="btn btn--big" href="{{ latest.url | relative_url }}">Read this week's issue</a></p>{% endif %}
+<p>Or browse the <a href="{{ '/#pipeline' | relative_url }}">pipeline tracker</a> to see every major project reshaping Folsom and El Dorado Hills.</p>
+
+<h2>Got a tip?</h2>
+<p>Know about a project, sale or meeting we should cover? Reply to any issue or write to <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>.</p>
