@@ -14,3 +14,7 @@ Jekyll site served by GitHub Pages from `main` at https://thedirtonfolsom.github
 - No invented facts or placeholder data. If unsure, leave it out.
 - Large readable text; audience includes older readers.
 - No sponsor line unless `sponsor:` is set in the post's front matter.
+
+## Email version (sent from Kit, reviewed by the owner before sending)
+- Each issue is also sent as a Kit broadcast. End every email with this note just above Kit's footer:
+  "The mailing address below belongs to our newsletter service, Kit. Anti-spam law requires every newsletter to list one. To reach us, email thedirtonfolsom@gmail.com or just reply to this email."
