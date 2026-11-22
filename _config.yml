@@ -7,7 +7,7 @@ contact_email: thedirtonfolsom@gmail.com
 
 # Kit signup form. Paste the form's action URL here once Kit is set up.
 # Example: https://app.kit.com/forms/1234567/subscriptions
-kit_form_action: ""
+kit_form_action: "https://app.kit.com/forms/10228094/subscriptions"
 
 # Until launch, ask search engines not to index the site.
 noindex: true
