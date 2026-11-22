@@ -8,10 +8,6 @@ The Dirt on Folsom is a free weekly newsletter about real estate and development
 
 Every issue explains the context behind the news: where a project is, how it got here, and why it matters to people who live here. Every fact links to its public source, such as city and county agendas, planning documents, property records and local news reports.
 
-## How it's made {#how}
-
-The Dirt is researched and drafted with the help of AI, using public sources. Every issue is reviewed by a person before it's sent. We summarize and link to other local outlets' reporting rather than republishing it.
-
 ## Corrections {#corrections}
 
 If we get something wrong, we want to know. Email [thedirtonfolsom@gmail.com](mailto:thedirtonfolsom@gmail.com) or reply to any issue. We fix errors on the website as soon as we confirm them and note the correction in the next issue.
