@@ -88,6 +88,10 @@ def main(path):
             tag["style"] = style + tag.get("style", "")
         if tag.name == "a" and tag.get("href", "").startswith("/"):
             tag["href"] = SITE + tag["href"]
+    for top in soup.find_all("div"):
+        spans = top.find_all("span", recursive=False)
+        if len(spans) == 2 and "from $" in spans[1].get_text():
+            spans[0].insert_after(" — ")
     content = str(soup)
 
     header = f"""
@@ -111,6 +115,8 @@ def main(path):
 </div>
 """
     html = header + content + footer
+    # One line, no indentation: pastes/types cleanly into Kit's HTML block.
+    html = re.sub(r"\n\s*", "", html)
     os.makedirs("email", exist_ok=True)
     out = f"email/{slug}.html"
     with open(out, "w", encoding="utf-8") as f:
