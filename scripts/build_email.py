@@ -124,7 +124,7 @@ def main(path):
     print(f"Wrote {out} ({len(html):,} bytes)")
     print(f"Subject: {meta['title']}")
     print(f"Preview text: {meta['dek']}")
-    print(f"Email URL: {SITE}/{out}")
+
 
 
 if __name__ == "__main__":
