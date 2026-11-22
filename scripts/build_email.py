@@ -74,7 +74,34 @@ def main(path):
     body = re.sub(r"\{\{\s*'([^']*)'\s*\|\s*relative_url\s*\}\}", lambda mm: SITE + mm.group(1), body)
 
     soup = BeautifulSoup(body, "html.parser")
+
+    # Story heads: number in its own column next to the headline (email-safe
+    # version of the site's flex layout), with the body indented to match.
+    for head in soup.select("div.story__head"):
+        num = head.select_one(".story__num")
+        h3 = head.find("h3")
+        table = soup.new_tag("table", attrs={"role": "presentation", "cellpadding": "0",
+                                             "cellspacing": "0", "width": "100%"})
+        tr = soup.new_tag("tr")
+        td_num = soup.new_tag("td", attrs={"width": "44", "valign": "top",
+            "style": f"width:44px;vertical-align:top;font-family:{DISPLAY};font-size:30px;line-height:1;color:{ACCENT};padding-top:1px;"})
+        td_num.string = num.get_text(strip=True) if num else ""
+        td_h = soup.new_tag("td", attrs={"valign": "top", "style": "vertical-align:top;"})
+        if h3:
+            h3["style"] = f"margin:0;font-family:{DISPLAY};font-size:21px;line-height:1.3;color:{INK};"
+            td_h.append(h3.extract())
+        tr.append(td_num)
+        tr.append(td_h)
+        table.append(tr)
+        head.replace_with(table)
+    for story in soup.select(".story"):
+        for child in story.find_all(["div", "aside"], recursive=False):
+            if {"story__body", "explainer"} & set(child.get("class", [])):
+                child["style"] = "margin-left:44px;" + child.get("style", "")
+
     for tag in soup.find_all(True):
+        if tag.name == "h3" and tag.get("style"):
+            continue
         style = TAG_STYLES.get(tag.name, "")
         for cls in tag.get("class", []):
             style += CLASS_STYLES.get(cls, "")
